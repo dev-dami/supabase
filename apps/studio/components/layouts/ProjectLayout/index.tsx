@@ -94,7 +94,7 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
     const combinedRef = mergeRefs(ref, setMainScrollContainer)
 
     const { appTitle } = useCustomContent(['app:title'])
-    const titleSuffix = appTitle || 'Supabase'
+    const titleSuffix = appTitle || 'Xelvo'
 
     const editor = useEditorType()
     const forceShowProductMenu = editor === undefined
@@ -112,8 +112,8 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
     const showPausedState = isPaused && !ignorePausedState
 
     const sidebarMinSizePercentage = 1
-    const sidebarDefaultSizePercentage = 15
-    const sidebarMaxSizePercentage = 33
+    const sidebarDefaultSizePercentage = 18
+    const sidebarMaxSizePercentage = 30
 
     return (
       <>
@@ -129,7 +129,7 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
                     ? `${organizationName} | ${titleSuffix}`
                     : titleSuffix}
           </title>
-          <meta name="description" content="Supabase Studio" />
+          <meta name="description" content="Xelvo Studio" />
         </Head>
         <div className="flex flex-row h-full w-full">
           {/*  autoSaveId="project-layout" */}
@@ -187,7 +187,7 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
               maxSize={100 - sidebarMinSizePercentage}
               defaultSize={100 - sidebarDefaultSizePercentage}
               id="panel-project-content"
-              className={cn('h-full flex flex-col w-full xl:min-w-[600px] bg-dash-sidebar')}
+              className={cn('h-full min-w-0 flex flex-col w-full bg-dash-sidebar')}
             >
               <main
                 className="h-full flex flex-col flex-1 w-full overflow-y-auto overflow-x-hidden @container"

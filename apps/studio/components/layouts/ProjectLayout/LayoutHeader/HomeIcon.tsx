@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 import { LOCAL_STORAGE_KEYS } from 'common'
 import { useOrganizationsQuery } from 'data/organizations/organizations-query'
@@ -14,7 +13,6 @@ export const HomeIcon = () => {
 
   const largeLogo = useIsFeatureEnabled('branding:large_logo')
 
-  const router = useRouter()
   const [lastVisitedOrganization] = useLocalStorageQuery(
     LOCAL_STORAGE_KEYS.LAST_VISITED_ORGANIZATION,
     ''
@@ -30,12 +28,13 @@ export const HomeIcon = () => {
   const href = IS_PLATFORM ? getDefaultOrgRedirect() : '/project/default'
 
   return (
-    <Link href={href} className="items-center justify-center flex-shrink-0 hidden md:flex">
-      <img
-        alt="Supabase"
-        src={`${router.basePath}/img/supabase-logo.svg`}
-        className={largeLogo ? 'h-[20px]' : 'h-[18px]'}
-      />
+    <Link
+      href={href}
+      className="items-center justify-center flex-shrink-0 hidden md:flex rounded-md border border-default bg-background px-2.5 py-1"
+    >
+      <span className={largeLogo ? 'text-xs tracking-[0.22em] font-semibold' : 'text-[10px] tracking-[0.2em] font-semibold'}>
+        XELVO
+      </span>
     </Link>
   )
 }
